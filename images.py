@@ -121,10 +121,16 @@ class ImagePipeline():
         t = template.render(img_path=self.img_path, all_image_filenames=self.all_image_filenames)
         print(t)
 
+    def render_json(self):
+        """ prints json list of image urls to stdout """
+
+        print(json.dumps({'data': self.all_image_filenames}))
+
+
 
 if __name__ == '__main__':
     fail_msg = """\n Please specify fetch or crop: \n
-                      python images.py <fetch/crop/render/shape>
+                      python images.py <fetch/crop/html/json/shape>
                       \n """
     try:
         action = sys.argv[1]
@@ -137,9 +143,11 @@ if __name__ == '__main__':
         image_maker.fetch_images();
     elif action == 'crop':
         image_maker.create_thumbnails();
-    elif action == 'render':
+    elif action == 'html':
         image_maker.render_html();
     elif action == 'shapes':
-        image_maker.create_random_shapes90;
+        image_maker.create_random_shapes();
+    elif action == 'json':
+        image_maker.render_json();
     else:
         print(fail_msg)

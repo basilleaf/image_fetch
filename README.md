@@ -16,7 +16,7 @@ and a utility to render an html list of these images to stdout.
 - run:
 
 
-        python images.py <fetch/crop/render/shape>
+        python images.py <fetch/crop/html/json/shape>
 
 
 A sample data.son is included in this repo
